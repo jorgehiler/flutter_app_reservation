@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import './pages/home_paget.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+          primaryTextTheme: Typography().white,
+          textTheme: Typography().white,
           primaryColor: Color(0xFF838383),
-          accentColor: Color(0xFF1a1a1a),
-          scaffoldBackgroundColor: Color(0xFF333333)),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+          focusColor: Color(0xFF838383),
+          primaryColorDark: Color(0xFF333333),
+          scaffoldBackgroundColor: Color(0xFF1a1a1a)),
+          home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -35,12 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         style: TextStyle(fontSize: 60),
       ),
     ),
-    Center(
-      child: Text(
-        'Inicio',
-        style: TextStyle(fontSize: 60),
-      ),
-    ),
+    HomePage(),
     Center(
       child: Text(
         'QR',
@@ -58,9 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: IndexedStack(
         index: _currentIndex,
         children: screnns,
@@ -89,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'QR',
           )
         ],
-      ), 
+      ),
     );
   }
 }
